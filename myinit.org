@@ -192,3 +192,17 @@
   (use-package vterm
     :ensure t)
 #+end_src
+
+* yasnippet
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :init
+    (yas-global-mode 1))
+
+  (use-package yasnippet-snippets
+    :ensure t)
+
+#+end_src
+
+
