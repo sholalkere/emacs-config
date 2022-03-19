@@ -1,0 +1,10 @@
+recentf
+straight/
+transient/
+brojectile-bookmarks.eld
+*~
+elpa/
+eln-cache/
+auto-save-list/
+.lsp-session-v1
+/projectile-bookmarks.eld
