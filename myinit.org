@@ -19,15 +19,18 @@
 
 * Visual Settings
 #+begin_src emacs-lisp
-  (use-package atom-one-dark-theme
+  (use-package doom-themes
     :ensure t
-    :config
-    (load-theme 'atom-one-dark t))
+    :init
+    (load-theme 'doom-vibrant t))
 
   (use-package org-bullets
     :ensure t
     :hook
     (org-mode . (lambda () (org-bullets-mode 1))))
+
+  (use-package all-the-icons
+     :ensure t) ;; remember to all-the-icons-install-font
 #+end_src
 
 * Utility Packages
@@ -118,6 +121,27 @@
     :ensure
     :init
     (global-undo-tree-mode))
+#+end_src
+
+** tabs
+#+begin_src emacs-lisp
+  (use-package centaur-tabs
+    :ensure t
+    :demand
+    :config
+    (centaur-tabs-headline-match)
+    (setq centaur-tabs-style "bar"
+	  centaur-tabs-set-bar 'left
+	  centaur-tabs-set-icons t
+	  centaur-tabs-height 32
+	  centaur-tabs-plain-icons t)
+    (centaur-tabs-mode t)
+    :bind
+    ("M-[" . centaur-tabs-backward)
+    ("M-]" . centaur-tabs-forward)
+    ("C-c <C-up>" . centaur-tabs-backward-group)
+    ("C-c <C-down>" . centaur-tabs-forward-group)
+    )
 #+end_src
 
 * Latex
