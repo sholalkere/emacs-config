@@ -122,21 +122,21 @@
 
 * Latex
 #+begin_src emacs-lisp
-      (use-package tex-mode
-	:ensure auctex
-	:config
-	(setq TeX-save-query nil)
-	)
+  (use-package tex-mode
+    :ensure auctex
+    :config
+    (setq TeX-save-query nil)
+    )
 
-      (use-package company-auctex
-	:ensure t
-	:config
-	(company-auctex-init))
+  (use-package company-auctex
+    :ensure t
+    :config
+    (company-auctex-init))
 
-      (use-package pdf-tools
-	:ensure t
-	:config
-	(pdf-tools-install))
+  ;; (use-package pdf-tools
+  ;;   :ensure t
+  ;;   :config
+  ;;   (pdf-tools-install))
 #+end_src
 
 * Git
