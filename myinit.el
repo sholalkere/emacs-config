@@ -4,7 +4,7 @@
 (toggle-scroll-bar -1)
 (global-display-fill-column-indicator-mode)
 (setq display-line-numbers-type 'relative)
-(display-line-numbers-mode)
+(global-display-line-numbers-mode)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
 	backup-by-copying      t  ; Don't de-link hard links
 	version-control        t  ; Use version numbers on backups
