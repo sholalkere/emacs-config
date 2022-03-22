@@ -263,6 +263,12 @@
 #+begin_src emacs-lisp
   (use-package vterm
     :ensure t)
+
+  (use-package multi-vterm
+    :ensure t
+    :bind(("C-x v n" . multi-vterm))
+    )
+
 #+end_src
 
 * yasnippet
