@@ -11,7 +11,7 @@
 	delete-old-versions    t  ; Automatically delete excess backups:
 	kept-new-versions      20 ; how many of the newest versions to keep
 	kept-old-versions      5) ; and how many of the old
- (set-face-attribute 'default nil :height 140)
+ (set-face-attribute 'default nil :font "Iosevka" :height 140)
 
 (use-package doom-themes
   :ensure t
@@ -24,7 +24,34 @@
   (org-mode . (lambda () (org-bullets-mode 1))))
 
 (use-package all-the-icons
-   :ensure t) ;; remember to all-the-icons-install-font
+  :ensure t) ;; remember to all-the-icons-install-font
+
+(use-package ligature
+  :straight (ligature :type git :host github :repo "mickeynp/ligature.el")
+  ;;:load-path "load path"
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+				       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+				       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+				       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+				       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+				       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+				       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+				       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+				       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+				       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+				       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+				       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+				       "\\\\" "://"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
 
 (use-package dashboard
       :ensure t
@@ -185,6 +212,11 @@
 
 (use-package vterm
   :ensure t)
+
+(use-package multi-vterm
+  :ensure t
+  :bind(("C-x v n" . multi-vterm))
+  )
 
 (use-package yasnippet
   :ensure t
