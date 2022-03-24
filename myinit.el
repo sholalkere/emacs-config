@@ -91,26 +91,52 @@
 
 (use-package swiper
   :ensure try
-    :config
-    (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (global-set-key "\C-s" 'swiper)
-    (global-set-key (kbd "C-c C-r") 'ivy-resume)
-    (global-set-key (kbd "<f6>") 'ivy-resume)
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-    (global-set-key (kbd "<f1> l") 'counsel-load-library)
-    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-    (global-set-key (kbd "C-c g") 'counsel-git)
-    (global-set-key (kbd "C-c j") 'counsel-git-grep)
-    (global-set-key (kbd "C-c k") 'counsel-ag)
-    (global-set-key (kbd "C-x l") 'counsel-locate)
-    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-    )
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (global-set-key "\C-s" 'swiper)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (global-set-key (kbd "<f6>") 'ivy-resume)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+  (global-set-key (kbd "<f1> l") 'counsel-load-library)
+  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  (global-set-key (kbd "C-c g") 'counsel-git)
+  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "C-x l") 'counsel-locate)
+  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+  )
+;; (use-package vertico
+;;   :ensure t
+;;   :init
+;;   (vertico-mode))
+
+;; (use-package orderless
+;;   :init
+;;   ;; Configure a custom style dispatcher (see the Consult wiki)
+;;   ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
+;;   ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+;;   (setq completion-styles '(orderless)
+;; 	completion-category-defaults nil
+;; 	completion-category-overrides '((file (styles partial-completion)))))
+
+;; (use-package savehist
+;;   :init
+;;   (savehist-mode))
+
+;; (use-package marginalia
+;;   :after vertico
+;;   :ensure t
+;;   :custom
+;;   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+;;   :init
+;;   (marginalia-mode)
+;;   )
 
 (use-package projectile
   :ensure t
@@ -205,7 +231,7 @@
 
 (use-package multi-vterm
   :ensure t
-  :bind(("C-x v n" . multi-vterm))
+  :bind(("C-c v n" . multi-vterm))
   )
 
 (use-package yasnippet
@@ -223,3 +249,18 @@
   (setq neo-smart-open t)
   (setq projectile-switch-project-action 'neotree-projectile-action)
   (global-set-key (kbd "C-c t") 'neotree-toggle))
+
+(use-package perspective
+  :ensure t
+  :config
+  (add-hook 'kill-emacs-hook #'persp-state-save)
+  (setq persp-state-default-file "~/.emacs.d/persp-state")
+  (global-set-key (kbd "C-x b") 'persp-ivy-switch-buffer)
+  (global-set-key (kbd "C-x p s") 'projectile-persp-switch-project)
+  (setq completion-styles '(orderless)
+    completion-category-overrides '((file (styles basic partial-completion))))
+  (persp-mode))
+
+(use-package persp-projectile
+  :ensure t
+  )
