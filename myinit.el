@@ -2,7 +2,7 @@
 (setq x-select-enable-clipboard t)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
-(global-display-fill-column-indicator-mode)
+(add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
@@ -11,7 +11,7 @@
 	delete-old-versions    t  ; Automatically delete excess backups:
 	kept-new-versions      20 ; how many of the newest versions to keep
 	kept-old-versions      5) ; and how many of the old
- (set-face-attribute 'default nil :font "Iosevka" :height 150)
+ (set-face-attribute 'default nil :font "Iosevka" :height 140)
 
 (use-package doom-themes
   :ensure t
@@ -222,4 +222,4 @@
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (setq neo-smart-open t)
   (setq projectile-switch-project-action 'neotree-projectile-action)
-  (global-set-key (kbd "C-x t t") 'neotree-toggle))
+  (global-set-key (kbd "C-c t") 'neotree-toggle))
