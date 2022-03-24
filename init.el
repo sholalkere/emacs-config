@@ -19,6 +19,7 @@
 
 ;; a few settings in init.el
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
+(add-to-list 'default-frame-alist '(width . 150))
 (setq warning-minimum-level :error)
 (setq gc-cons-threshold most-positive-fixnum)
 (setq custom-file "~/.emacs.d/emacs-custom.el") ;; no more annoying custom variables
