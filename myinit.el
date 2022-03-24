@@ -163,10 +163,20 @@
   :config
   (company-auctex-init))
 
-;; (use-package pdf-tools
-;;   :ensure t
-;;   :config
-;;   (pdf-tools-install))
+(use-package pdf-tools
+  :ensure t
+  :pin manual
+  :config
+  ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools")))
+  ;; (add-hook 'pdf-view-mode-hook 'pdf-continuous-scroll-mode)
+  ;; (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
+  (pdf-loader-install)
+  (setq pdf-view-use-scaling t))
+
+(use-package latex-preview-pane
+  :ensure t
+  :config
+  (latex-preview-pane-enable))
 
 (use-package magit
   :ensure t)
@@ -253,7 +263,7 @@
 (use-package perspective
   :ensure t
   :config
-  (add-hook 'kill-emacs-hook #'persp-state-save)
+  ;; (add-hook 'kill-emacs-hook #'persp-state-save)
   (setq persp-state-default-file "~/.emacs.d/persp-state")
   (global-set-key (kbd "C-x b") 'persp-ivy-switch-buffer)
   (global-set-key (kbd "C-x p s") 'projectile-persp-switch-project)
