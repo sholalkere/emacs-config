@@ -11,12 +11,16 @@
 	delete-old-versions    t  ; Automatically delete excess backups:
 	kept-new-versions      20 ; how many of the newest versions to keep
 	kept-old-versions      5) ; and how many of the old
- (set-face-attribute 'default nil :font "Iosevka" :height 140)
+ (set-face-attribute 'default nil :font "Iosevka" :height 150)
 
 (use-package doom-themes
   :ensure t
   :init
   (load-theme 'doom-vibrant t))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (use-package org-bullets
   :ensure t
@@ -54,9 +58,13 @@
   (global-ligature-mode t))
 
 (use-package dashboard
-      :ensure t
-      :config
-      (dashboard-setup-startup-hook))
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-center-content t)
+  (setq dashboard-items '((recents . 5)
+			  (bookmarks . 5)
+			  (projects . 5))))
 
 (use-package which-key
   :ensure t
@@ -117,24 +125,6 @@
   :ensure
   :init
   (global-undo-tree-mode))
-
-;; (use-package centaur-tabs
-;;   :ensure t
-;;   :demand
-;;   :config
-;;   (centaur-tabs-headline-match)
-;;   (setq centaur-tabs-style "bar"
-;;   centaur-tabs-set-bar 'left
-;;   centaur-tabs-set-icons t
-;;   centaur-tabs-height 24
-;;   centaur-tabs-plain-icons t)
-;;   (centaur-tabs-mode t)
-;;   :bind
-;;   ("M-[" . centaur-tabs-backward)
-;;   ("M-]" . centaur-tabs-forward)
-;;   ("C-c <C-up>" . centaur-tabs-backward-group)
-;;   ("C-c <C-down>" . centaur-tabs-forward-group)
-;;   )
 
 (use-package tex-mode
   :ensure auctex
@@ -225,3 +215,11 @@
 
 (use-package yasnippet-snippets
   :ensure t)
+
+(use-package neotree
+  :ensure t
+  :config
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq neo-smart-open t)
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+  (global-set-key (kbd "C-x t t") 'neotree-toggle))
