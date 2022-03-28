@@ -11,15 +11,19 @@
       delete-old-versions    t  ; Automatically delete excess backups:
       kept-new-versions      20 ; how many of the newest versions to keep
       kept-old-versions      5) ; and how many of the old
-(set-face-attribute 'default nil :font "Iosevka" :height 140)
+(set-face-attribute 'default nil :font "IBM Plex Mono" :height 140)
 
 (global-set-key [wheel-right] 'scroll-left)
 (global-set-key [wheel-left] 'scroll-right)
 
+(electric-pair-mode)
+
+(hl-line-mode)
+
 (use-package doom-themes
   :ensure t
   :init
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-material t))
 
 (use-package doom-modeline
   :ensure t
@@ -140,6 +144,11 @@
   :init
   (marginalia-mode)
   )
+
+(use-package consult
+  :ensure t
+  :config
+  (global-set-key (kbd "C-s") 'consult-line))
 
 (use-package projectile
   :ensure t
