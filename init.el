@@ -21,7 +21,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq warning-minimum-level :error)
 (setq gc-cons-threshold most-positive-fixnum)
-(setq custom-file "~/.emacs.d/emacs-custom.el") ;; no more annoying custom variables
+(setq custom-file "~/.emacs.d/custom.el") ;; no more annoying custom variables
 (load custom-file t)
 
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line

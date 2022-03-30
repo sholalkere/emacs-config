@@ -30,7 +30,7 @@
   (use-package doom-themes
     :ensure t
     :init
-    (load-theme 'doom-vibrant t))
+    (load-theme 'doom-horizon t))
 
   (use-package doom-modeline
     :ensure t
@@ -214,7 +214,7 @@
     :pin manual
     :config
     ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools")))
-    (add-hook 'pdf-view-mode-hook 'pdf-continuous-scroll-mode)
+    ;; (add-hook 'pdf-view-mode-hook 'pdf-continuous-scroll-mode)
     ;; (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
     (pdf-loader-install)
     (setq pdf-view-use-scaling t))
