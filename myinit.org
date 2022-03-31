@@ -1,4 +1,3 @@
-
 #+STARTUP: overview
 * Settings
 #+begin_src emacs-lisp
@@ -31,11 +30,11 @@
   (use-package doom-themes
     :ensure t
     :init
-    (load-theme 'modus-vivendi t))
+    (load-theme 'doom-horizon t))
 
-  ;; (use-package doom-modeline
-  ;;   :ensure t
-  ;;   :init (doom-modeline-mode 1))
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1))
 
   (use-package org-bullets
     :ensure t
@@ -199,10 +198,10 @@
 
 ** undo tree
 #+begin_src emacs-lisp
-  (use-package undo-tree
-    :ensure
-    :init
-    (global-undo-tree-mode))
+  ;; (use-package undo-tree
+  ;;   :ensure
+  ;;   :init
+  ;;   (global-undo-tree-mode))
 #+end_src
 * Latex
 #+begin_src emacs-lisp
