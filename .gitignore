@@ -1,11 +1,7 @@
-recentf
+auto-save-list/
+backup/
+eln-cache/
+projectile-bookmarks.eld
+sh-emacs.el
 straight/
 transient/
-brojectile-bookmarks.eld
-*~
-elpa/
-eln-cache/
-auto-save-list/
-.lsp-session-v1
-/projectile-bookmarks.eld
-/projects
