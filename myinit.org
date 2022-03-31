@@ -1,3 +1,4 @@
+
 #+STARTUP: overview
 * Settings
 #+begin_src emacs-lisp
@@ -32,9 +33,9 @@
     :init
     (load-theme 'doom-horizon t))
 
-  (use-package doom-modeline
-    :ensure t
-    :init (doom-modeline-mode 1))
+  ;; (use-package doom-modeline
+  ;;   :ensure t
+  ;;   :init (doom-modeline-mode 1))
 
   (use-package org-bullets
     :ensure t
@@ -44,32 +45,32 @@
   (use-package all-the-icons
     :ensure t) ;; remember to all-the-icons-install-font
 
-  ;; (use-package ligature
-  ;;   :straight (ligature :type git :host github :repo "mickeynp/ligature.el")
-  ;;   ;;:load-path "load path"
-  ;;   :config
-  ;;   ;; Enable the "www" ligature in every possible major mode
-  ;;   (ligature-set-ligatures 't '("www"))
-  ;;   ;; Enable traditional ligature support in eww-mode, if the
-  ;;   ;; `variable-pitch' face supports it
-  ;;   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
-  ;;   ;; Enable all Cascadia Code ligatures in programming modes
-  ;;   (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
-  ;; 				       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
-  ;; 				       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
-  ;; 				       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
-  ;; 				       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
-  ;; 				       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
-  ;; 				       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
-  ;; 				       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
-  ;; 				       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
-  ;; 				       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
-  ;; 				       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
-  ;; 				       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
-  ;; 				       "\\\\" "://"))
-  ;;   ;; Enables ligature checks globally in all buffers. You can also do it
-  ;;   ;; per mode with `ligature-mode'.
-  ;;   (global-ligature-mode t))
+  (use-package ligature
+    :straight (ligature :type git :host github :repo "mickeynp/ligature.el")
+    ;;:load-path "load path"
+    :config
+    ;; Enable the "www" ligature in every possible major mode
+    (ligature-set-ligatures 't '("www"))
+    ;; Enable traditional ligature support in eww-mode, if the
+    ;; `variable-pitch' face supports it
+    (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+    ;; Enable all Cascadia Code ligatures in programming modes
+    (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+					 ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+					 "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+					 "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+					 "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+					 "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+					 "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+					 "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+					 ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+					 "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+					 "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+					 "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+					 "\\\\" "://"))
+    ;; Enables ligature checks globally in all buffers. You can also do it
+    ;; per mode with `ligature-mode'.
+    (global-ligature-mode t))
 #+end_src
 
 * Utility Packages
