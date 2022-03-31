@@ -89,6 +89,16 @@
     (persp-mode))
 #+end_src
 
+* LSP
+#+begin_src emacs-lisp
+  (use-package lsp-mode
+    :hook
+    (tuareg-mode . lsp)
+    (lsp-mode . lsp-enable-which-key-integration)
+    :commands
+    lsp)
+#+end_src
+
 * Git
 #+begin_src emacs-lisp
   (use-package magit)
@@ -120,6 +130,36 @@
 
 ** ocaml
 #+begin_src emacs-lisp
-  
+  (use-package merlin)
+  (use-package merline-company)
+  (use-package merlin-iedit)
+  (use-package merlin-ac)
+  (use-package ocamlformat)
+
+  (defun ocamlformat-before-save ()
+    "Add this to .emacs to run ocamlformat on the current buffer when saving:
+  \(add-hook 'before-save-hook 'ocamlformat-before-save)."
+    (interactive)
+    (when (eq major-mode 'tuareg-mode) (ocamlformat)))
+
+  (defun ocamllsp-setup () 
+    (lsp-register-client
+     (make-lsp-client
+      :new-connection
+      (lsp-stdio-connection '("opam" "exec" "--" "ocamllsp"))
+      :major-modes '(tuareg-mode)
+      :priority -6
+      :server-id 'ocamllsp)))
+
+  (use-package tuareg
+    :config
+    (with-eval-after-load "lsp-mode"
+      (setq lsp-enabled-clients '(ocamllsp))
+      (ocamllsp-setup))
+    :hook
+    (tuareg-mode . lsp)
+    (tuareg-mode . merlin-mode)
+    (before-save . ocamlformat-before-save))
+
 #+end_src
 
