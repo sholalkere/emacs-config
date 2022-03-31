@@ -23,7 +23,7 @@
 
   (electric-pair-mode)
 
-  (hl-line-mode)
+  (global-hl-line-mode)
 #+end_src
 
 * Visual Settings
@@ -31,7 +31,7 @@
   (use-package doom-themes
     :ensure t
     :init
-    (load-theme 'doom-horizon t))
+    (load-theme 'modus-vivendi t))
 
   ;; (use-package doom-modeline
   ;;   :ensure t
@@ -116,6 +116,13 @@
     :ensure t
     :config
     (exec-path-from-shell-initialize))
+#+end_src
+
+** avy
+#+begin_src emacs-lisp
+  (use-package avy
+    :bind ("M-s" . avy-goto-char)
+    )
 #+end_src
 
 ** completion framework
