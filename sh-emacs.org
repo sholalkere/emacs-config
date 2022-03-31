@@ -1,8 +1,24 @@
 #+STARTUP: overview
+* emacs settings
+#+begin_src emacs-lisp
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+	backup-by-copying      t  ; Don't de-link hard links
+	version-control        t  ; Use version numbers on backups
+	delete-old-versions    t  ; Automatically delete excess backups:
+	kept-new-versions      20 ; how many of the newest versions to keep
+	kept-old-versions      5) ; and how many of the old
+#+end_src
+
 * visual settings
 #+begin_src emacs-lisp
-  ;;(load-theme 'modus-vivendi)
   (global-hl-line-mode)
+
+  (setq display-line-numbers-type 'relative)
+
+  (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+  (add-hook 'org-mode-hook 'display-line-numbers-mode)
 #+end_src
 
 * visual packages
@@ -11,6 +27,7 @@
     :init
     (load-theme 'doom-horizon t))
 #+end_src
+
 * exec path from shell
 #+begin_src emacs-lisp
   (use-package exec-path-from-shell
@@ -25,6 +42,13 @@
     :config
     (which-key-mode))
 #+end_src
+
+* ace-window
+#+begin_src emacs-lisp
+  (use-package ace-window
+    :bind (("M-o" . ace-window)))
+#+end_src
+
 
 * evil
 #+begin_src emacs-lisp
@@ -105,6 +129,14 @@
   (use-package git-gutter
     :init
     (global-git-gutter-mode +1))
+#+end_src
+
+* vterm
+#+begin_src emacs-lisp
+  (use-package vterm)
+
+  (use-package multi-vterm
+    :bind (("C-c v n" . multi-vterm)))
 #+end_src
 
 * languages
