@@ -30,5 +30,5 @@
 
 ;; load org-mode configuration
 (use-package org
-  :ensure t)
+:ensure t)
 (org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
