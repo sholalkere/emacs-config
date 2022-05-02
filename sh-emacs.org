@@ -51,17 +51,17 @@
 
 * evil
 #+begin_src emacs-lisp
-  (use-package evil
-    :init
-    (setq evil-want-integration t)
-    (setq evil-want-keybinding nil)
-    :config
-    (evil-mode 1))
+  ;;(use-package evil
+  ;;  :init
+  ;;  (setq evil-want-integration t)
+  ;;  (setq evil-want-keybinding nil)
+  ;;  :config
+  ;;  (evil-mode 1))
 
-  (use-package evil-collection
-    :after evil
-    :config
-    (evil-collection-init))
+  ;; (use-package evil-collection
+  ;;   :after evil
+  ;;   :config
+  ;;   (evil-collection-init))
 #+end_src
 
 * vertico
@@ -107,7 +107,9 @@
 * perpective
 #+begin_src emacs-lisp
   (use-package perspective
-    :bind (("C-x b" . persp-switch-to-buffer*))
+    :bind (("C-x C-b" . persp-list-buffers))
+    :custom
+    (persp-mode-prefix-key (kbd "C-x x"))
     :config
     (setq persp-state-default-file "~/.emacs.d/persp-state")
     (persp-mode))
@@ -163,7 +165,7 @@
 ** ocaml
 #+begin_src emacs-lisp
   (use-package merlin)
-  (use-package merline-company)
+  (use-package merlin-company)
   (use-package merlin-iedit)
   (use-package merlin-ac)
   (use-package ocamlformat)
